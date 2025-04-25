@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 60 33% 96%;
+    --foreground: 170 93% 18%;
+    --card: 60 33% 96%;
+    --card-foreground: 170 93% 18%;
+    --popover: 60 33% 96%;
+    --popover-foreground: 170 93% 18%;
+
+    /* Updated primary color to teal */
+    --primary: 170 93% 18%;
+    --primary-foreground: 60 33% 96%;
+
+    /* Updated secondary color to lime green */
+    --secondary: 73 68% 65%;
+    --secondary-foreground: 170 93% 18%;
+
+    --muted: 170 20% 90%;
+    --muted-foreground: 170 40% 30%;
+    --accent: 73 68% 65%;
+    --accent-foreground: 170 93% 18%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 60 33% 96%;
+    --border: 170 30% 85%;
+    --input: 170 30% 85%;
+
+    /* Updated ring color to teal */
+    --ring: 170 93% 18%;
+    --radius: 0.375rem;
+  }
+
+  .dark {
+    --background: 170 93% 10%;
+    --foreground: 60 33% 96%;
+    --card: 170 93% 10%;
+    --card-foreground: 60 33% 96%;
+    --popover: 170 93% 10%;
+    --popover-foreground: 60 33% 96%;
+
+    /* Updated primary color to lime green for dark mode */
+    --primary: 73 68% 65%;
+    --primary-foreground: 170 93% 18%;
+
+    --secondary: 170 50% 20%;
+    --secondary-foreground: 60 33% 96%;
+    --muted: 170 50% 20%;
+    --muted-foreground: 170 20% 70%;
+    --accent: 170 50% 20%;
+    --accent-foreground: 60 33% 96%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 60 33% 96%;
+    --border: 170 50% 20%;
+    --input: 170 50% 20%;
+
+    /* Updated ring color to lime green for dark mode */
+    --ring: 73 68% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply text-foreground bg-[#FCFAEE];
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-[#FCFAEE]/90 backdrop-blur-md backdrop-filter dark:bg-[#035A52]/90;
+  }
+
+  .ai-badge {
+    @apply relative flex items-center gap-2 bg-gradient-to-r from-[#035A52] to-[#D8E267] text-[#FCFAEE] text-xs font-medium px-4 py-1.5 rounded-md;
+  }
+
+  .ai-badge-pulse {
+    @apply absolute left-3 top-1/2 -translate-y-1/2 h-2 w-2 rounded-full bg-[#FCFAEE];
+  }
+
+  .ai-badge-pulse::before {
+    content: "";
+    @apply absolute inset-0 rounded-full bg-[#FCFAEE] animate-ping opacity-75;
+  }
+
+  .travel-tips {
+    @apply rounded-lg bg-gradient-to-br from-[#D8E267]/20 to-[#D8E267]/10 p-6 border border-[#D8E267]/30 dark:from-[#D8E267]/10 dark:to-[#D8E267]/5 dark:border-[#D8E267]/20 relative overflow-hidden;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
